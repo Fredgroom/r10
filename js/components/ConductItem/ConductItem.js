@@ -20,6 +20,5 @@ ConductItem.propTypes = {
     itemData: PropTypes.shape({
         title: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
-        id: PropTypes.string.isRequired
     })
 };
