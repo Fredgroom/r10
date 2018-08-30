@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import {fonts} from '../../config/styles'
 
 export const styles = StyleSheet.create({
     container: {
@@ -10,11 +11,13 @@ export const styles = StyleSheet.create({
         textAlign: 'left',
         marginTop: 20,
         marginBottom: 20,
+        fontFamily: fonts.light,
         // margin: 10,
     },
     heading: {
         fontSize: 24,
         fontWeight: 'bold',
+        fontFamily: fonts.regular,
         
         // margin: 10,
     },
