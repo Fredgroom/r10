@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { About } from './screens/About';
+import { AboutContainer } from './screens/About';
 
 export default class App extends Component {
   render() {
     return (
-      <About />
-    )
+      <AboutContainer />
+    );
   }
 }
