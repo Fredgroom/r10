@@ -13,7 +13,7 @@ const About = ({ allConducts }) => {
         any topic related to dev.
       </Text>
       <Text style={styles.heading}>
-        Dates & Venues
+        Date & Venue
       </Text>
       <Text style={styles.paragraph}>
         The R10 conference will take place on 27 June 2019
@@ -22,10 +22,10 @@ const About = ({ allConducts }) => {
       <Text style={styles.heading}>
         Code of Conduct
       </Text>
-      <View>
+      <View style={styles.component}>
         {allConducts.map((item) => <ConductItem key={item.id} itemData={item} />)}
       </View>
-
+      <Text style={styles.heading}>&copy; RED Academy London</Text>
     </ScrollView>
   );
 }
