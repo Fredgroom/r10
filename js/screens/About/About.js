@@ -25,7 +25,7 @@ const About = ({ allConducts }) => {
       <View style={styles.component}>
         {allConducts.map((item) => <ConductItem key={item.id} itemData={item} />)}
       </View>
-      <Text style={styles.heading}>&copy; RED Academy London</Text>
+      <Text style={styles.footer}>&copy; RED Academy London</Text>
     </ScrollView>
   );
 }

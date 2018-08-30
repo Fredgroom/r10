@@ -21,6 +21,12 @@ export const styles = StyleSheet.create({
         
         // margin: 10,
     },
+    footer: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        fontFamily: fonts.regular,
+        marginBottom: 30,
+    },
     component: {
         marginBottom: 20,
     }
