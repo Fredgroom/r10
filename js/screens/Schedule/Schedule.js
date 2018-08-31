@@ -1,16 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { View, Text, ScrollView } from 'react-native';
-import { styles } from './styles';
+import { View, Text, ScrollView, SectionList } from 'react-native';
+import SessionItem from '../../components/SessionItem';
 
 
-const Schedule = () => {
+
+const Schedule = ({allSessions}) => {
     return (
         <ScrollView>
             <View>
-                <Text >
-                    Schedule
-                </Text>
+                <View>
+                    {allSessions.map((item) => <SessionItem key={item.id} itemData={item} />)}
+                </View>
             </View>
         </ScrollView>
     )

@@ -33,5 +33,9 @@ const GradientHeader = (props) => (
       backgroundColor: 'transparent',
       color: colours.white,
       fontFamily: fonts.regular,
+    },
+    headerTitleStyle: {
+        color: colours.white,
+        fontFamily: fonts.regular,
     }
   });
