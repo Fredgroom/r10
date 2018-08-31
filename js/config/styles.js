@@ -6,6 +6,8 @@ export const colours = {
     blue: '#8797D6',
     purple: '#9963ea',
     red: '#cf392a',
+    white: '#f9f9f9',
+    black: '#090909',
 }
 
 export const fonts = {
