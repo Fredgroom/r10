@@ -69,9 +69,9 @@ export default createBottomTabNavigator(
                 } else if (routeName === 'Map') {
                     iconName = `ios-map`;
                 } else if (routeName === 'Faves') {
-                    iconName = `ios-heart${focused ? '' : '-empty'}`;
+                    iconName = `ios-heart`;
                 } else if (routeName === 'About') {
-                    iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+                    iconName = `ios-information-circle`;
                 }
 
                 // You can return any component that you like here! We usually use an
