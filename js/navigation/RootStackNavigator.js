@@ -3,7 +3,6 @@ import NavigationLayout from './NavigationLayout';
 
 const RootStack = createStackNavigator({
         Layout: NavigationLayout
-    
 });
 
 export default RootStack;  

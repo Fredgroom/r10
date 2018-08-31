@@ -4,16 +4,18 @@ import { View, Text, ScrollView } from 'react-native';
 import { styles } from './styles';
 import ConductItem from '../../components/ConductItem';
 
-const Faves = ({  }) => {
+const Map = () => {
     return (
         <ScrollView>
             <View>
                 <Text >
-                    Faves
+                    Map
                 </Text>
             </View>
         </ScrollView>
     )
+ 
 }
 
-export default Faves;
+
+export default Map;
