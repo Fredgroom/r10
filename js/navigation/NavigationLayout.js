@@ -59,7 +59,27 @@ export default createBottomTabNavigator(
 
 
     },
-    
+    {
+        navigationOptions: ({ navigation }) => ({
+            tabBarIcon: ({ focused, tintColor }) => {
+                const { routeName } = navigation.state;
+                let iconName;
+                if (routeName === 'Schedule') {
+                    iconName = `ios-calendar`;
+                } else if (routeName === 'Map') {
+                    iconName = `ios-map`;
+                } else if (routeName === 'Faves') {
+                    iconName = `ios-heart${focused ? '' : '-empty'}`;
+                } else if (routeName === 'About') {
+                    iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+                }
+
+                // You can return any component that you like here! We usually use an
+                // icon component from react-native-vector-icons
+                return <Ionicons name={iconName} size={25} color={tintColor} />;
+            },
+        }),
+    },
     {
         tabBarOptions: {
             activeTintColor: colours.white,
