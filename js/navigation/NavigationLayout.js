@@ -6,6 +6,9 @@ import { FavesContainer } from '../screens/Faves';
 import { MapContainer } from '../screens/Map';
 import { colours, fonts } from '../config/styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { sharedNavigationOptions } from './config';
+
+
 
 
 const AboutStack = createStackNavigator(
@@ -13,19 +16,24 @@ const AboutStack = createStackNavigator(
         About: AboutContainer,
     },
     {
-        headerMode: 'none',
-    },
-
+        navigationOptions: ({ navigation }) => ({
+            ...sharedNavigationOptions(navigation),
+            title: navigation.state.routeName,
+        })
+    }
 );
+
 
 const ScheduleStack = createStackNavigator(
     {
         Schedule: ScheduleContainer,
     },
     {
-        headerMode: 'none',
-    },
-
+        navigationOptions: ({ navigation }) => ({
+            ...sharedNavigationOptions(navigation),
+            title: navigation.state.routeName,
+        })
+    }
 );
 
 const MapStack = createStackNavigator(
@@ -33,9 +41,11 @@ const MapStack = createStackNavigator(
         Map: MapContainer,
     },
     {
-        headerMode: 'none',
-    },
-
+        navigationOptions: ({ navigation }) => ({
+            ...sharedNavigationOptions(navigation),
+            title: navigation.state.routeName,
+        })
+    }
 );
 
 const FavesStack = createStackNavigator(
@@ -43,9 +53,11 @@ const FavesStack = createStackNavigator(
         Faves: FavesContainer,
     },
     {
-        headerMode: 'none',
-    },
-
+        navigationOptions: ({ navigation }) => ({
+            ...sharedNavigationOptions(navigation),
+            title: navigation.state.routeName,
+        })
+    }
 );
 
 
@@ -61,6 +73,7 @@ export default createBottomTabNavigator(
     },
     {
         navigationOptions: ({ navigation }) => ({
+            header: null,
             tabBarIcon: ({ focused, tintColor }) => {
                 const { routeName } = navigation.state;
                 let iconName;
@@ -71,7 +84,7 @@ export default createBottomTabNavigator(
                 } else if (routeName === 'Faves') {
                     iconName = `ios-heart`;
                 } else if (routeName === 'About') {
-                    iconName = `ios-information-circle`;
+                    iconName = `ios-information-circle`
                 }
 
                 // You can return any component that you like here! We usually use an
@@ -89,7 +102,7 @@ export default createBottomTabNavigator(
             },
             style: {
                 backgroundColor: colours.black,
-                fontFamily: fonts.regular,
+                fontFamily: fonts.light,
             },
         },
     }
