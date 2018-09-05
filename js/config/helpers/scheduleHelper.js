@@ -1,4 +1,4 @@
-export const formatSessionData = sessions => {
+export const formatSessionData = (sessions) => {
     return sessions
       .reduce((accumulator, currentValue) => {
         const timeExists = accumulator.find(section => section.title === currentValue.startTime);

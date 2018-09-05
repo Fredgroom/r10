@@ -4,6 +4,8 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import Schedule from './Schedule';
 import Loader from '../../components/Loader';
+import {formatSessionData} from '../../config/helpers/scheduleHelper'
+
 
 const allSessionQuery = gql`
     query {
@@ -26,7 +28,7 @@ export default class ScheduleContainer extends Component {
                         if (loading || !data) {
                             return <Loader />
                         }
-                        return <Schedule allSessions={data.allSessions} />
+                        return <Schedule allSessions={formatSessionData(data.allSessions)} />
                     }
                 }
             </Query>
