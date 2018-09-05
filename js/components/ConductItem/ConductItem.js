@@ -4,6 +4,19 @@ import { View, Text } from 'react-native';
 import { styles } from './styles';
 
 export default class ConductItem extends Component {
+    constructor() {
+        super();
+        this.state = { data: ['Thing 1', 'Thing 2'] };
+      }
+      render() {
+        return (
+          <FlatList
+            data={this.state.data}
+            renderItem={({ item }) => <View><Text>{item}</Text></View>}
+            keyExtractor={(item, index) => index}
+          />
+        );
+      }
     render() {
         const { itemData } = this.props;
 

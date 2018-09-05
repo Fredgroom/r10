@@ -4,6 +4,7 @@ import { View, Text, ScrollView } from 'react-native';
 import { styles } from './styles';
 import ConductItem from '../../components/ConductItem';
 
+
 const Session = ({  }) => {
     return (
         <ScrollView>
