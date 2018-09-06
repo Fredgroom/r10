@@ -1,21 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { View, Text, ScrollView } from 'react-native';
-import { styles } from './styles';
-import ConductItem from '../../components/ConductItem';
+import { View, Text, ScrollView, SectionList } from 'react-native';
+import SessionItem from '../../components/SessionItem';
 
 
-const Session = ({  }) => {
+const Session = ({allSessions}) => {
     return (
         <ScrollView>
             <View>
-                <Text >
-                    Session
-                </Text>
+                <View>
+                 <Session sessions={allSessions} />
+                </View>
             </View>
         </ScrollView>
     )
 }
-
 
 export default Session;

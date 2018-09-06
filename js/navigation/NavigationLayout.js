@@ -61,6 +61,9 @@ const FavesStack = createStackNavigator(
 );
 
 
+
+
+
 // Dedicated stacks for Schedule and Faves will go here too!
 export default createBottomTabNavigator(
     {
