@@ -1,18 +1,13 @@
 import React from 'react';
-import { View, Text, ScrollView, SectionList } from 'react-native';
-import SessionItem from '../../components/SessionItem';
+import { ScrollView, Text } from 'react-native';
+import { styles } from './styles';
 
-
-const Session = ({allSessions}) => {
+const Session = () => {
     return (
-        <ScrollView>
-            <View>
-                <View>
-                 <Session sessions={allSessions} />
-                </View>
-            </View>
+        <ScrollView contentContainerStyle={styles.container}>
+            <Text>Session</Text>
         </ScrollView>
-    )
+    );
 }
 
 export default Session;

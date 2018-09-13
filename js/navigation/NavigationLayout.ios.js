@@ -1,21 +1,17 @@
 import React from 'react';
 import {
-    createDrawerNavigator,
-    DrawerNavigator,
     createStackNavigator,
     createBottomTabNavigator
 } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { AboutContainer } from '../screens/About';
-import { colours, fonts } from '../config/styles';
+import { colours } from '../config/styles';
 import { FavesContainer } from '../screens/Faves';
 import { ScheduleContainer } from '../screens/Schedule';
 import { SessionContainer } from '../screens/Session';
 import { SpeakerContainer } from '../screens/Speaker'
 import { MapContainer } from '../screens/Map'
 import { sharedNavigationOptions } from './config';
-
-
 
 const AboutStack = createStackNavigator(
     {
@@ -31,7 +27,6 @@ const AboutStack = createStackNavigator(
 
 const FavesStack = createStackNavigator(
     {
-
         Faves: FavesContainer,
     },
     {
@@ -45,33 +40,17 @@ const FavesStack = createStackNavigator(
 const ScheduleStack = createStackNavigator(
     {
         Schedule: ScheduleContainer,
-    },
-    {
-        navigationOptions: ({ navigation }) => ({
-            title: navigation.state.routeName,
-            ...sharedNavigationOptions(navigation)
-        })
-    }
-);
-
-const SessionStack = createStackNavigator(
-    {
         Session: SessionContainer,
     },
     {
         navigationOptions: ({ navigation }) => ({
             title: navigation.state.routeName,
-            ...sharedNavigationOptions(navigation)
+            ...sharedNavigationOptions(navigation),
+            initialRouteName: 'Schedule'
         })
     }
 );
 
-const SpeakerStack = createStackNavigator(
-    {
-        Speaker: SpeakerContainer
-    },
-
-);
 const MapStack = createStackNavigator(
     {
         Map: MapContainer
@@ -82,8 +61,6 @@ const MapStack = createStackNavigator(
         })
     }
 );
-// Dedicated stacks for Schedule and Faves will go here too!
-
 
 export default createBottomTabNavigator(
     {
@@ -95,7 +72,7 @@ export default createBottomTabNavigator(
     {
         navigationOptions: ({ navigation }) => ({
             ...sharedNavigationOptions(navigation),
-            tabBarIcon: ({ focused, tintColor }) => {
+            tabBarIcon: ({ tintColor }) => {
                 const { routeName } = navigation.state;
                 let iconName;
                 if (routeName === 'About') {
@@ -108,13 +85,11 @@ export default createBottomTabNavigator(
                     iconName = `ios-calendar`;
                 }
 
-
                 // You can return any component that you like here! We usually use an
                 // icon component from react-native-vector-icons
                 return <Ionicons name={iconName} size={25} color={tintColor} />;
             },
         }),
-
         tabBarOptions: {
             activeTintColor: colours.white,
 
@@ -126,5 +101,4 @@ export default createBottomTabNavigator(
             },
         },
     }
-
 );

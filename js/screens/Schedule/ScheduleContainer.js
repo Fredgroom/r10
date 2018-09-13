@@ -1,40 +1,39 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
 import Schedule from './Schedule';
-import Loader from '../../components/Loader';
-import {formatSessionData} from '../../config/helpers/scheduleHelper'
+import Loader from '../../components/Loader'
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo';
+import { formatSessionData } from '../../config/helpers';
 
-
-const allSessionQuery = gql`
+const allSessionsQuery = gql`
     query {
         allSessions{
+            startTime
             title
             location
-            startTime
             id
+            description
+            speaker {
+                id
+            }
         }
-    }    
+    }
 `;
-
 
 export default class ScheduleContainer extends Component {
     render() {
-        const {  data } = this.props;
         return (
-            <Query query={allSessionQuery}>
+            <Query query={allSessionsQuery}>
                 {
                     ({ loading, data }) => {
                         if (loading || !data) {
                             return <Loader />
                         }
-                        return <Schedule allSessions={formatSessionData(data.allSessions)} />
+                        return <Schedule
+                            allSessions={formatSessionData(data.allSessions)} />
                     }
                 }
             </Query>
-        )
+        );
     }
 }
-
-

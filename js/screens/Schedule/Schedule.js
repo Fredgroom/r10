@@ -1,18 +1,18 @@
 import React from 'react';
-import { View, Text, ScrollView, SectionList } from 'react-native';
-import SessionItem from '../../components/SessionItem';
+import { PropTypes } from 'prop-types';
+import { ScrollView } from 'react-native';
+import SessionList from '../../components/SessionList';
 
-
-const Schedule = ({allSessions}) => {
+const Schedule = ({ allSessions }) => {
     return (
         <ScrollView>
-            <View>
-                <View>
-                 <SessionItem sessions={allSessions} />
-                </View>
-            </View>
+            <SessionList sessionData={allSessions} />
         </ScrollView>
-    )
+    );
 }
+
+Schedule.propTypes = {
+    allSessions: PropTypes.array.isRequired,
+};
 
 export default Schedule;
