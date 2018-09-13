@@ -21,6 +21,7 @@ const allSessionQuery = gql`
 
 export default class ScheduleContainer extends Component {
     render() {
+        const {  data } = this.props;
         return (
             <Query query={allSessionQuery}>
                 {

@@ -5,6 +5,7 @@ import gql from 'graphql-tag';
 import Session from './Session';
 import Loader from '../../components/Loader';
 import {formatSessionData} from '../../config/helpers/scheduleHelper'
+import Schedule from '../Schedule/Schedule';
 
 
 const allSessionQuery = gql`
