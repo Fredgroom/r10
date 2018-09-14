@@ -11,6 +11,7 @@ export const colours = {
 }
 
 export const fonts = {
+    baseSize: 16,
     regular: 'Montserrat-Regular',
     light: 'Montserrat-Light'
 }

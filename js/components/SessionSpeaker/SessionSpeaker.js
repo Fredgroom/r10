@@ -24,9 +24,10 @@ const SessionSpeaker = ({ navigation, speakerData }) => {
                             style={styles.speakerImage}
                         />
                     )}
+                </TouchableOpacity>
+
                     <Text style={styles.speakerName}>{speakerData.name}</Text>
 
-                </TouchableOpacity>
             </View>
         </View>
     );
