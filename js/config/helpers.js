@@ -1,25 +1,27 @@
-export const formatSessionData = (sessions) => {
+import { Linking } from 'react-native';
+
+// Helper to navigate to a URL in a browser
+export const goToUrl = url => {
+    Linking.canOpenURL(url)
+        .then(supported => {
+            if (!supported) {
+                console.log('Can\'t handle URL:', url);
+            } else {
+                return Linking.openURL(url);
+            }
+        })
+        .catch(err => console.error('An error occurred', err));
+};
+
+// Helper to format Firebase data into section list data
+export const formatSessionData = sessions => {
     return sessions
-      .reduce((accumulator, currentValue) => {
-        const timeExists = accumulator.find(section => section.title === currentValue.startTime);
-        timeExists
-          ? timeExists.data.push(currentValue)
-          : accumulator.push({ title: currentValue.startTime, data: [currentValue] });
-        return accumulator;
-      }, [])
-      .sort((a, b) => a.title - b.title);
-  };
-
-
-  export const formatAMPM = (date) => {
-    var dateObject = new Date(date);
-    var hours = dateObject.getHours();
-    var minutes = dateObject.getMinutes();
-    var ampm = hours >= 12 ? 'pm' : 'am';
-    hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
-    minutes = minutes < 10 ? '0'+minutes : minutes;
-    var strTime = hours + ':' + minutes + ' ' + ampm;
-    return strTime;
-  }
-  
+        .reduce((acc, curr) => {
+            const timeExists = acc.find((section) => section.title === curr.startTime);
+            timeExists
+                ? timeExists.data.push(curr)
+                : acc.push({ title: curr.startTime, data: [curr] });
+            return acc;
+        }, [])
+        .sort((a, b) => a.title - b.title);
+};
