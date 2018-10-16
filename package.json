@@ -3,21 +3,29 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "prettier": "prettier --list-different 'js/**/*.js' index.js",
+    "prettier:fix": "prettier --write 'js/**/*.js' index.js",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "yarn prettier"
+  },
+  "engines": {
+    "node": "<=v9.11.2"
   },
   "dependencies": {
-    "add": "2.0.6",
     "apollo-boost": "0.1.15",
     "graphql": "0.13.2",
     "graphql-tag": "2.9.2",
+    "moment": "2.22.2",
+    "node": "9.11.2",
+    "prettier": "^1.14.3",
     "react": "16.4.1",
     "react-apollo": "2.1.11",
     "react-native": "0.56.0",
+    "react-native-cli": "^2.0.1",
     "react-native-linear-gradient": "2.4.2",
     "react-native-vector-icons": "5.0.0",
     "react-navigation": "2.12.1",
-    "realm": "^2.15.3"
+    "realm": "2.15.3"
   },
   "devDependencies": {
     "babel-jest": "23.4.2",
