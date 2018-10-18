@@ -2,18 +2,25 @@
 
 ## Overview
 
-This repository implements R10, an application to facilitate hosting and attending a convention, using React Native.
+This repository implements R10, an application to facilitate hosting and attending a convention, by  using React Native.
 
 ## Documentation
 
 This project has been implemented using the wireframes in assets/ux-wireframes/index.html as a starting point.
 
-## Development
+## Installation
+* This project works with node v9.11.2.
+* This project works with JDK 1.8.0_181.
+* Download or clone the repo.
+* Run yarn add in the command line
 
-### Environment
-
-The Development enviroment can be reproduced following these steps: [DEVELOPMENT.md](./DEVELOPMENT.md).
-
-### GraphQL
-
-GraphQL usage is documented in [GRAPHQL.md](./GRAPHQL.md).
+## How to Run
+### For iOS 
+* make sure you have Xcode installed 
+* run: react-native run-ios
+* run: react-native start
+### For Android
+ * make sure you have Android Studio installed
+ * have an emulator running
+* run: react-native run-android
+* run: react-native start
