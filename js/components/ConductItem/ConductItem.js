@@ -1,29 +1,36 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
+import { View, TouchableOpacity, Text, Platform, UIManager, } from 'react-native';
 import { styles } from './styles';
 
 export default class ConductItem extends Component {
-    constructor() {
-        super();
-        this.state = { data: ['Thing 1', 'Thing 2'] };
-      }
-      render() {
-        return (
-          <FlatList
-            data={this.state.data}
-            renderItem={({ item }) => <View><Text>{item}</Text></View>}
-            keyExtractor={(item, index) => index}
-          />
-        );
+    constructor(props) {
+        super(props);
+        this.state = { 
+            clicked: false,
+         };
+        if (Platform.OS === 'android') {
+            UIManager.setLayoutAnimationEnabledExperimental &&
+              UIManager.setLayoutAnimationEnabledExperimental(true);
+          }
+          this.onPress = this.onPress.bind(this);
+    }
+      onPress() {
+        this.setState({
+          clicked: !this.state.clicked,
+        });
       }
     render() {
         const { itemData } = this.props;
 
         return (
             <View>
-                <Text style={styles.conductHeader}>{itemData.title}</Text>
+            <TouchableOpacity onPress={this.onPress}>
+                <Text style={styles.conductHeader}>{this.state.clicked ? '- ' : '+ '}{itemData.title}</Text>
+                {this.state.clicked && (
                 <Text style={styles.conductText}>{itemData.description}</Text>
+                )}
+            </TouchableOpacity>
             </View>
         );
     }
