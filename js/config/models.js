@@ -11,7 +11,6 @@ const FaveSchema = {
   };
   
   const realm = new Realm({ schema: [FaveSchema] });
-  console.log('the path is:', realm.path);
   
   // Create a Fave object
   export const newFave = (id) => {

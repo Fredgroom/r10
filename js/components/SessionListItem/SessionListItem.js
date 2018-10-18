@@ -7,8 +7,6 @@ import { colours } from '../../config/styles';
 import { styles } from './styles';
 
 const onItemPress = (navigation, sessionItemData) => {
-    console.log('onItemPress: sessionItemData:', sessionItemData);
-    console.log('onItemPress: navigation:', navigation);
     navigation.push('Session', { sessionItemData });
 };
 

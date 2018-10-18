@@ -18,7 +18,6 @@ const speakerQuery = gql`
 export default class SessionContainer extends Component {
     render() {
         const { sessionItemData } = this.props.navigation.state.params;
-        console.log('SessionContainer: sessionItemData:', sessionItemData);
         return (
             <Query
                 query={speakerQuery}
@@ -27,7 +26,6 @@ export default class SessionContainer extends Component {
                     if (loading || !data) {
                         return <Loader />
                     }
-                    console.log('SessionContainer: data:', data);
                     return <Session
                         speakerData={data.Speaker}
                         sessionItemData={sessionItemData} />

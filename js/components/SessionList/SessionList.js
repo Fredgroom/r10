@@ -7,7 +7,6 @@ import SessionListItem from '../SessionListItem';
 import Separator from '../Separator';
 
 const SessionList = ({ sessionData }) => {
-    console.log('sessionData:', sessionData);
     return (
         <SectionList
             sections={sessionData}

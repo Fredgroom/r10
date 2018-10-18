@@ -7,8 +7,6 @@ import Separator from '../../components/Separator';
 import SessionSpeaker from '../../components/SessionSpeaker';
 
 const Session = ({ speakerData, sessionItemData }) => {
-    console.log('Session: sessionItemData:', sessionItemData);
-    console.log('Session: speakerData:', speakerData);
     return (
         <ScrollView style={styles.container}>
             <View style={styles.sessionMeta}>
