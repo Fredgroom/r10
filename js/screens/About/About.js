@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { View, Text, ScrollView } from "react-native";
-import { styles } from "./styles";
-import ConductItem from "../../components/ConductItem";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { View, Text, ScrollView } from 'react-native';
+import { styles } from './styles';
+import ConductItem from '../../components/ConductItem';
 
 const About = ({ allConducts }) => {
   return (
@@ -16,7 +16,7 @@ const About = ({ allConducts }) => {
       </Text>
       <Text style={styles.heading}>Code of Conduct</Text>
       <View style={styles.component}>
-        {allConducts.map(item => (
+        {allConducts.map((item) => (
           <ConductItem key={item.id} itemData={item} />
         ))}
       </View>
@@ -26,7 +26,7 @@ const About = ({ allConducts }) => {
 };
 
 About.propTypes = {
-  allConducts: PropTypes.array.isRequired
+  allConducts: PropTypes.array.isRequired,
 };
 
 export default About;

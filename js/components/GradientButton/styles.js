@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 16,
     paddingRight: 16,
-    paddingTop: 10
+    paddingTop: 10,
   },
   buttonText: {
     backgroundColor: 'transparent',

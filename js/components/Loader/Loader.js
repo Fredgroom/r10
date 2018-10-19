@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import {ActivityIndicator, View} from 'react-native';
-import {styles} from './styles';
-import {colours} from '../../config/styles';
+import { ActivityIndicator, View } from 'react-native';
+import { styles } from './styles';
+import { colours } from '../../config/styles';
 
 const Loader = () => {
-    return (
+  return (
     <View style={styles.container}>
-    <ActivityIndicator animating={true} size='large' color={colours.red}/>
+      <ActivityIndicator animating={true} size="large" color={colours.red} />
     </View>
-    );
+  );
 };
 
 export default Loader;

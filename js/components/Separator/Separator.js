@@ -6,16 +6,18 @@ import { styles } from './styles';
 import { colours } from '../../config/styles';
 
 const Separator = ({ colour, style }) => {
-  return <View style={[styles.separator, { backgroundColor: colour }, style]} />;
+  return (
+    <View style={[styles.separator, { backgroundColor: colour }, style]} />
+  );
 };
 
 Separator.defaultProps = {
-  colour: colours.lightGrey
+  colour: colours.lightGrey,
 };
 
 Separator.propTypes = {
   colour: PropTypes.string,
-  style: PropTypes.any
+  style: PropTypes.any,
 };
 
 export default Separator;

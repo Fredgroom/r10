@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import {View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import Map from './Map';
 import Loader from '../../components/Loader';
 
-
 export default class MapContainer extends Component {
-    render() {
-        return (
-             <Map />    
-        );
-    }
+  render() {
+    return <Map />;
+  }
 }
-

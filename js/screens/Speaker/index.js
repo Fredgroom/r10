@@ -1,3 +1,3 @@
 import SpeakerContainer from './SpeakerContainer';
 
-export {SpeakerContainer};
+export { SpeakerContainer };

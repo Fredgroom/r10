@@ -4,15 +4,15 @@ import { ScrollView } from 'react-native';
 import SessionList from '../../components/SessionList';
 
 const Schedule = ({ allSessions }) => {
-    return (
-        <ScrollView>
-            <SessionList sessionData={allSessions} />
-        </ScrollView>
-    );
-}
+  return (
+    <ScrollView>
+      <SessionList sessionData={allSessions} />
+    </ScrollView>
+  );
+};
 
 Schedule.propTypes = {
-    allSessions: PropTypes.array.isRequired,
+  allSessions: PropTypes.array.isRequired,
 };
 
 export default Schedule;

@@ -5,17 +5,13 @@ import { styles } from './styles';
 import ConductItem from '../../components/ConductItem';
 
 const Map = () => {
-    return (
-        <ScrollView>
-            <View>
-                <Text >
-                    Map
-                </Text>
-            </View>
-        </ScrollView>
-    )
- 
-}
-
+  return (
+    <ScrollView>
+      <View>
+        <Text>Map</Text>
+      </View>
+    </ScrollView>
+  );
+};
 
 export default Map;
