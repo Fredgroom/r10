@@ -1,7 +1,6 @@
-// for defining our Realm db schema later
 import Realm from 'realm';
 
-const FaveSchema = {
+const faveSchema = {
   name: 'Fave',
   primaryKey: 'id',
   properties: {
@@ -10,28 +9,26 @@ const FaveSchema = {
   },
 };
 
-const realm = new Realm({ schema: [FaveSchema] });
+export const realm = new Realm({ schema: [faveSchema] });
 
-// Create a Fave object
-export const newFave = (id) => {
+export const queryFaves = () => {
+  return realm.objects('Fave').map((fave) => fave.id);
+};
+
+export const addFave = (id) => {
   realm.write(() => {
-    realm.create('Fave', { id: id, faved_on: new Date() });
+    const faved_on = new Date();
+    realm.create('Fave', { id, faved_on });
   });
 };
 
 export const removeFave = (id) => {
   realm.write(() => {
-    let allFaves = realm.objects('Fave');
-    let faveId = id;
-    let currentFave = allFaves.filtered('id == $0', faveId);
-    realm.delete(currentFave);
+    const favToDelete = realm.objects('Fave').filtered(`id ==$0`, id);
+    realm.delete(favToDelete);
   });
 };
 
-export const queryAllFaves = () => {
-  let allFaves = realm.objects('Fave');
-  let ascFaves = allFaves.sorted('id');
-  return ascFaves;
+export const getFaves = () => {
+  return realm.objects('Fave');
 };
-
-export default realm;

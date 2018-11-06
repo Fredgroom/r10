@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Text, View, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
 import { styles } from './styles';
@@ -23,9 +23,8 @@ const SessionSpeaker = ({ navigation, speakerData }) => {
               style={styles.speakerImage}
             />
           )}
+          <Text style={styles.speakerName}>{speakerData.name}</Text>
         </TouchableOpacity>
-
-        <Text style={styles.speakerName}>{speakerData.name}</Text>
       </View>
     </View>
   );

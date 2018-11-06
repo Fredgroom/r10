@@ -1,26 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, TouchableHighlight, View } from 'react-native';
+import { Text, TouchableHighlight, View, Platform } from 'react-native';
 import { withNavigation } from 'react-navigation';
-
 import { colours } from '../../config/styles';
 import { styles } from './styles';
+import Icons from 'react-native-vector-icons/Ionicons';
 
 const onItemPress = (navigation, sessionItemData) => {
   navigation.push('Session', { sessionItemData });
 };
 
-const SessionListItem = ({ navigation, sessionItemData }) => {
+const SessionListItem = ({ navigation, sessionItemData, faveIds }) => {
+  const allFaves = [];
+  faveIds.map((item) => allFaves.push(item.id));
+  const isFaved = allFaves.includes(sessionItemData.id);
   return (
     <TouchableHighlight
       onPress={() => onItemPress(navigation, sessionItemData)}
       underlayColor={colours.lightGrey}
     >
       <View style={styles.sessionItem}>
-        <Text style={styles.title}>{sessionItemData.title}</Text>
         <View style={styles.sessionItemMeta}>
-          <Text style={styles.location}>{sessionItemData.location}</Text>
+          <Text style={styles.title}>{sessionItemData.title}</Text>
+          {isFaved ? (
+            <Icons
+              name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'}
+              color="red"
+              backgroundColor="transparent"
+              size={10}
+            />
+          ) : null}
         </View>
+        <Text style={styles.location}>{sessionItemData.location}</Text>
       </View>
     </TouchableHighlight>
   );
