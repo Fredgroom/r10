@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Loader from '../../components/Loader';
-import Session from './Session';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
+import FavesContext from '../../context/FavesContext';
+import Loader from '../../components/Loader';
+import Session from './Session';
 
 const speakerQuery = gql`
   query($id: ID) {
@@ -28,10 +29,19 @@ export default class SessionContainer extends Component {
             return <Loader />;
           }
           return (
-            <Session
-              speakerData={data.Speaker}
-              sessionItemData={sessionItemData}
-            />
+            <FavesContext.Consumer>
+              {(values) => {
+                return (
+                  <Session
+                    speakerData={data.Speaker}
+                    sessionItemData={sessionItemData}
+                    faveIds={values.faveIds}
+                    addFave={values.addFave}
+                    removeFave={values.removeFave}
+                  />
+                );
+              }}
+            </FavesContext.Consumer>
           );
         }}
       </Query>

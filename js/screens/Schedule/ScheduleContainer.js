@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Schedule from './Schedule';
-import Loader from '../../components/Loader';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
-import { formatSessionData } from '../../config/helpers';
+import { formatSessionData } from '../../lib/helpers';
+import FavesContext from '../../context/FavesContext';
+import Loader from '../../components/Loader';
+import Schedule from './Schedule';
 
 const allSessionsQuery = gql`
   query {
@@ -28,7 +29,18 @@ export default class ScheduleContainer extends Component {
           if (loading || !data) {
             return <Loader />;
           }
-          return <Schedule allSessions={formatSessionData(data.allSessions)} />;
+          return (
+            <FavesContext.Consumer>
+              {(values) => {
+                return (
+                  <Schedule
+                    allSessions={formatSessionData(data.allSessions)}
+                    faveIds={values.faveIds}
+                  />
+                );
+              }}
+            </FavesContext.Consumer>
+          );
         }}
       </Query>
     );

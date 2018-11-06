@@ -27,7 +27,6 @@ const SessionListItem = ({ navigation, sessionItemData }) => {
 };
 
 SessionListItem.propTypes = {
-  // faveIds: PropTypes.array.isRequired,
   navigation: PropTypes.object.isRequired,
   sessionItemData: PropTypes.shape({
     description: PropTypes.string,

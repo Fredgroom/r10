@@ -4,7 +4,7 @@ import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import { goToUrl } from '../../config/helpers';
+import { goToUrl } from '../../lib/helpers';
 import GradientButton from '../../components/GradientButton';
 
 import { colours } from '../../config/styles';

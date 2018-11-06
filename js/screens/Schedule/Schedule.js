@@ -3,10 +3,10 @@ import { PropTypes } from 'prop-types';
 import { ScrollView } from 'react-native';
 import SessionList from '../../components/SessionList';
 
-const Schedule = ({ allSessions }) => {
+const Schedule = ({ allSessions, faveIds }) => {
   return (
     <ScrollView>
-      <SessionList sessionData={allSessions} />
+      <SessionList sessionData={allSessions} faveIds={faveIds} />
     </ScrollView>
   );
 };

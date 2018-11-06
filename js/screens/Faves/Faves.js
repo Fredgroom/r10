@@ -1,38 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { View, Text, ScrollView } from 'react-native';
+import { ScrollView, Text } from 'react-native';
+import SessionList from '../../components/SessionList';
 
-import ConductItem from '../../components/ConductItem';
-
-const Faves = () => {
+const Faves = ({ allSessions, faveIds }) => {
   return (
     <ScrollView>
-      <View>
-        <Text style={styles.container}>I can be seen an all platforms.</Text>
-        {Platform.OS === 'ios' && (
-          <Text>You'll only see me on iOS devices.</Text>
-        )}
-        {Platform.Version === 24 && (
-          <Text>And I'm only on Android devices running Nougat.</Text>
-        )}
-      </View>
+      {allSessions.length > 0 ? (
+        <SessionList sessionData={allSessions} faveIds={faveIds} />
+      ) : (
+        <Text>Add some Favorites to see them here!</Text>
+      )}
     </ScrollView>
   );
 };
 
 export default Faves;
-
-import { Platform, StyleSheet } from 'react-native';
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    ...Platform.select({
-      ios: {
-        backgroundColor: 'red',
-      },
-      android: {
-        backgroundColor: 'blue',
-      },
-    }),
-  },
-});
